@@ -1,6 +1,8 @@
 // get all workout data from back-end
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
 
-fetch("/api/workouts/range")
+fetch("/api/exercise/range")
   .then(response => {
     return response.json();
   })
