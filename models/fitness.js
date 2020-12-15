@@ -17,8 +17,9 @@ const exerciseSchema = new Schema({
     type: Date,
     default: Date.now
   }
+  
 });
 
-const Exercise = mongoose.model("workout", exerciseSchema);
+const Fitness = mongoose.model("Fitness", exerciseSchema);
 
-module.exports = Exercise;
+module.exports = Fitness;

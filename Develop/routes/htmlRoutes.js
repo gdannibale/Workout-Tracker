@@ -19,6 +19,12 @@ module.exports = function(app) {
   app.get("/stats", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/stats.html"));
   });
+
+  app.post("/stats", function(req, res) {
+    // Write code here to create a new todo and save it to the database
+    // and then res.json back the new todo to the user
+
+  });
   
 
 };

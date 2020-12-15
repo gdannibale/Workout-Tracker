@@ -23,10 +23,10 @@ request.onerror = function(event) {
 
 function saveRecord(record) {
   // create a transaction on the pending db with readwrite access
-  const exercise = db.transaction(["pending"], "readwrite");
+  const fitness = db.fitness(["pending"], "readwrite");
 
   // access your pending object store
-  const store = exercise.objectStore("pending");
+  const store = fitness.objectStore("pending");
 
   // add record to your store with add method.
   store.add(record);
@@ -34,15 +34,15 @@ function saveRecord(record) {
 
 function checkDatabase() {
   // open a transaction on your pending db
-  const exercise = db.exercise(["pending"], "readwrite");
+  const fitness = db.fitness(["pending"], "readwrite");
   // access your pending object store
-  const store = exercise.objectStore("pending");
+  const store = fitness.objectStore("pending");
   // get all records from store and set to a variable
   const getAll = store.getAll();
 
   getAll.onsuccess = function() {
     if (getAll.result.length > 0) {
-      fetch("/api/exercise/bulk", {
+      fetch("/api/fitness/bulk", {
         method: "POST",
         body: JSON.stringify(getAll.result),
         headers: {
@@ -53,10 +53,10 @@ function checkDatabase() {
       .then(response => response.json())
       .then(() => {
         // if successful, open a transaction on your pending db
-        const exercise = db.exercise(["pending"], "readwrite");
+        const fitness = db.fitness(["pending"], "readwrite");
 
         // access your pending object store
-        const store = exercise.objectStore("pending");
+        const store = fitness.objectStore("pending");
 
         // clear all items in your store
         store.clear();
