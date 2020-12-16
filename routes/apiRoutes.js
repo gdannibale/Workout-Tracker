@@ -1,4 +1,4 @@
-var db = require("../../models/fitness.js");
+var db = require("../models/fitness.js");
 
 // Routes
 // =============================================================

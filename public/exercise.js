@@ -117,14 +117,14 @@ async function handleFormSubmit(event) {
   await API.addExercise(workoutData);
   clearInputs();
   toast.classList.add("success");
-}
+};
 
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");
   if (shouldNavigateAway) {
     location.href = "/";
   }
-}
+};
 
 function clearInputs() {
   cardioNameInput.value = "";

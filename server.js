@@ -36,3 +36,4 @@ app.listen(PORT, () => {
 
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
+// require("./routes/statsRoute.js")(app);
