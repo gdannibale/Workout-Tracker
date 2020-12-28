@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/exercise", {
 });
 
 // routes
-app.use(express.Router("./routes/api.js"));
+app.use(express.Router("./routes/apiRoutes.js"));
 
 app.post("/submit", ({ body }, res) => {
   User.create(body)

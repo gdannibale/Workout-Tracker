@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const Schema = mongoose.Schema;
 
@@ -11,7 +10,11 @@ const exerciseSchema = new Schema({
   },
   value: {
     type: Number,
-    required: "Enter a time"
+    required: "Enter a distance"
+  },
+  value: {
+    type: Number,
+    required: "Enter a duration"
   },
   date: {
     type: Date,
@@ -20,6 +23,6 @@ const exerciseSchema = new Schema({
   
 });
 
-const Fitness = mongoose.model("Fitness", exerciseSchema);
+const fitness = mongoose.model("fitness", exerciseSchema);
 
-module.exports = Fitness;
+module.exports = fitness;
