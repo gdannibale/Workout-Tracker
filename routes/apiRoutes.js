@@ -1,12 +1,13 @@
 var db = require("../models");
 
+
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   // GET route for getting all of the todos
   app.get("/api/exercise", (req, res) => {
-    db.Fitness.find({})
+    db.Workout.find({})
     .then(data => {
         res.json(data);
     }).catch(err => {
@@ -16,7 +17,7 @@ module.exports = function(app) {
 
   // POST route for saving a new todo. We can create todo with the data in req.body
   app.post("/api/exercise", ({body}, res) => { 
-      db.Fitness.create({ body })
+      db.Workout.create({ body })
           .then(dbFitness => {
       console.log(body);
               res.json(dbFitness)

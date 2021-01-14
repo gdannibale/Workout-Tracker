@@ -22,7 +22,7 @@
     <div class="ui container exercise">
       <div class="ui raised card m-auto">
         <h2>Add Your Exercise</h2>
-        <form action="POST">
+        <form id='exercise-form'>
           <div class="workout-type">
             <label for="type">Exercise Type:</label>
             <select name="type" id="type">
@@ -68,10 +68,10 @@
             </div>
           </div>
           <div class="buttons">
-            <button disabled class="huge ui blue button complete">
+            <button class="huge ui blue button complete">
               Complete
             </button>
-            <button disabled class="huge ui positive button add-another", id="submitWorkout">
+            <button class="huge ui positive button add-another" id="submitWorkout" type='submit'>
               Add Exercise
             </button>
           </div>
@@ -82,16 +82,30 @@
   <div id="toast">
     Workout Added Successfully!
   </div>
-  <script src="/api.js"></script>
-  <script src="/exercise.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./api.js"></script>
+  <script src="./exercise.js"></script>
   <script> 
-  // $("#submitWorkout").click(function(){
-  //   $.ajax({url: "/api/stats", success: function(result){
-  //   $("#div1").html(result);
-  // }});
-  // }
+/*   $("#submitFitness").click(function(){
+    $.ajax({url: "/api/stats", success: function(result){
+    $("#div1").html(result);
+  }});
+  }) */
+
+  $('#exercise-form').on('submit', function(event) {
+    event.preventDefault()
+    $.ajax(
+      {
+        url: "/api/exercise",
+        method: 'POST',
+        success: function(result){
+          console.log(result)
+          //   $("#div1").html(result);
+  }});
+  })
 
   </script> 
+  
 </body>
 
 </html>

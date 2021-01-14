@@ -14,7 +14,7 @@ module.exports = function(app) {
   });
 
   // blog route loads blog.html
-  app.get("/exercise", function(req, res) {
+  app.get("/fitness", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/exercise.html"));
   });
 

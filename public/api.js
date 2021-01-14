@@ -10,11 +10,11 @@ const API = {
 
     return json[json.length - 1];
   },
-  async addExercise(data) {
-    const id = location.search.split("=")[1];
+  async addWorkout(data) {
+   const id = location.search.split("=")[1];
 
-    const res = await fetch("/models/fitness/" + id, {
-      method: "PUT",
+    const res = await fetch("/api/exercise/" + id, {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
@@ -42,3 +42,5 @@ const API = {
     return json;
   },
 };
+
+

@@ -14,23 +14,24 @@ const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
 const newWorkout = document.querySelector(".new-workout")
 
+
 let workoutType = null;
 let shouldNavigateAway = false;
 
-async function initExercise() {
-  let workout;
+async function initWorkout() {
+  let exercise;
 
   if (location.search.split("=")[1] === undefined) {
-    workout = await API.createWorkout()
-    console.log(workout)
+    exercise = await API.createWorkout()
+    console.log(exercise)
   }
-  if (workout) {
-    location.search = "?id=" + workout._id;
+  if (exercise) {
+    location.search = "?id=" + exercise._id;
   }
 
 }
 
-initExercise();
+initWorkout();
 
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
@@ -114,7 +115,7 @@ async function handleFormSubmit(event) {
     workoutData.duration = Number(resistanceDurationInput.value.trim());
   }
 
-  await API.addExercise(workoutData);
+  await API.addWorkout(workoutData);
   clearInputs();
   toast.classList.add("success");
 };
